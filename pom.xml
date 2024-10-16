@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>training.taylor.time-tracker</groupId>
@@ -6,19 +7,23 @@
     <packaging>pom</packaging>
     <version>0.5.0-SNAPSHOT</version>
     <name>Time Tracker (Parent)</name>
-    <description>
-        This is a simple Maven / Java web project.
-    </description>
+    <description>This is a simple Maven / Java web project.</description>
     <inceptionYear>2017</inceptionYear>
     <url>http://taylor.training/</url>
 
     <properties>
-        <spring.version>5.0.2.RELEASE</spring.version>
-        <java.version>1.8</java.version>
+        <!-- Updated for JDK 21 -->
+        <java.version>21</java.version>
+
+        <!-- Updated Spring version compatible with JDK 21 -->
+        <spring.version>6.0.0</spring.version>
+
+        <!-- Keep existing versions unless updated -->
         <junit.version>4.12</junit.version>
         <findbugs.version>3.0.5</findbugs.version>
         <pmd.version>3.8</pmd.version>
         <checkstyle.version>2.17</checkstyle.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -30,17 +35,18 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- Updated Maven Compiler Plugin for JDK 21 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>3.10.1</version> <!-- Updated to support JDK 21 -->
                     <configuration>
-                        <verbose>true</verbose>
-                        <fork>true</fork>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                     </configuration>
                 </plugin>
+
+                <!-- Other plugins remain unchanged -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
